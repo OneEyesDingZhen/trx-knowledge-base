@@ -1,0 +1,302 @@
+/**
+ * TRX 知识库 · 灰黑主题
+ * 设计基调：石墨灰为主色，去彩色化，靠字重/层级/留白表达
+ */
+
+/* ========== 品牌色：zinc 石墨灰体系 ========== */
+:root {
+  /* 主品牌色（按钮、链接、激活态）—— 近黑 */
+  --vp-c-brand-1: #27272a;
+  --vp-c-brand-2: #3f3f46;
+  --vp-c-brand-3: #52525b;
+  --vp-c-brand-soft: rgba(39, 39, 42, 0.08);
+
+  /* 首页 hero 渐变名 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #18181b 30%, #71717a 100%);
+
+  /* hero 背景光晕：极淡的灰 */
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #52525b 30%, #a1a1aa 70%);
+  --vp-home-hero-image-filter: blur(72px);
+
+  /* 选中文字 */
+  --vp-c-selection-bg: rgba(39, 39, 42, 0.14);
+
+  /* 提示块统一灰阶 */
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-2: var(--vp-c-brand-2);
+  --vp-c-tip-3: var(--vp-c-brand-3);
+  --vp-c-tip-soft: var(--vp-c-brand-soft);
+}
+
+.dark {
+  /* 深色模式下品牌色反转为浅灰，保证对比度 */
+  --vp-c-brand-1: #e4e4e7;
+  --vp-c-brand-2: #d4d4d8;
+  --vp-c-brand-3: #a1a1aa;
+  --vp-c-brand-soft: rgba(228, 228, 231, 0.10);
+
+  /* 深色背景：石墨黑而非纯黑 */
+  --vp-c-bg: #131315;
+  --vp-c-bg-alt: #18181b;
+  --vp-c-bg-elv: #1c1c1f;
+  --vp-c-bg-soft: #1c1c1f;
+
+  --vp-c-selection-bg: rgba(228, 228, 231, 0.18);
+
+  --vp-home-hero-name-background: linear-gradient(120deg, #fafafa 30%, #a1a1aa 100%);
+}
+
+/* ========== 品牌按钮：黑底白字 / 深色模式反转 ========== */
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #fafafa;
+  --vp-button-brand-bg: #27272a;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: #3f3f46;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: #18181b;
+}
+
+.dark {
+  --vp-button-brand-text: #18181b;
+  --vp-button-brand-bg: #e4e4e7;
+  --vp-button-brand-hover-text: #09090b;
+  --vp-button-brand-hover-bg: #fafafa;
+  --vp-button-brand-active-text: #09090b;
+  --vp-button-brand-active-bg: #d4d4d8;
+}
+
+/* ========== 首页 Feature 卡片：悬浮反馈 ========== */
+.VPFeatures .VPFeature {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.VPFeatures .VPFeature:hover {
+  transform: translateY(-3px);
+  border-color: var(--vp-c-brand-3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark .VPFeatures .VPFeature:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ========== 正文排版精修 ========== */
+.vp-doc {
+  /* 中文阅读行高 */
+  line-height: 1.85;
+}
+
+/* 代码块：圆角 + 细边框，去塑料感 */
+.vp-doc div[class*='language-'] {
+  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+/* 行内代码：灰色药丸 */
+.vp-doc :not(pre) > code {
+  border-radius: 5px;
+  padding: 2px 6px;
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-text-1);
+}
+
+/* 引用块：左侧灰条 */
+.vp-doc blockquote {
+  border-left: 3px solid var(--vp-c-brand-3);
+  border-radius: 0 6px 6px 0;
+  background-color: var(--vp-c-bg-soft);
+  padding: 10px 16px;
+}
+
+/* 表格：斑马纹 + 圆角外框感 */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vp-doc tbody tr:nth-child(2n) {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* 侧边栏激活项：灰底药丸 */
+.VPSidebarItem .item .link:hover .text,
+.VPSidebarItem .item .link.active .text {
+  color: var(--vp-c-brand-1);
+}
+
+/* 链接下划线动效（正文内） */
+.vp-doc a {
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+/* 全局滚动条（webkit） */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* 页面切换淡入 */
+.VPDoc .container .content {
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================================================================
+ * 视图开关：左右栏折叠（桌面/iPad 横屏）
+ * ================================================================== */
+
+.view-toggles {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 60;
+}
+
+.vt-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+  background-color: var(--vp-c-bg-elv);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.vt-btn:hover {
+  color: var(--vp-c-text-1);
+  border-color: var(--vp-c-brand-3);
+  transform: translateY(-2px);
+}
+
+.vt-btn.off {
+  opacity: 0.45;
+}
+
+/* 右栏开关只在右概览存在的断点显示（≥1280px） */
+.vt-aside {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .vt-aside {
+    display: flex;
+  }
+}
+
+/* 左栏开关只在侧栏内联显示的断点出现（≥960px）；之下是抽屉形态，无需开关 */
+.vt-sidebar {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .vt-sidebar {
+    display: flex;
+  }
+}
+
+/* ---- 隐藏左侧目录：回收占位空间 ---- */
+@media (min-width: 960px) {
+  html.hide-sidebar .VPSidebar {
+    display: none;
+  }
+
+  html.hide-sidebar .VPContent.has-sidebar {
+    padding-left: 48px;
+  }
+}
+
+@media (min-width: 1440px) {
+  html.hide-sidebar .VPContent.has-sidebar {
+    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2 + 48px);
+  }
+}
+
+/* ---- 隐藏右侧概览：正文加宽 ---- */
+@media (min-width: 1280px) {
+  html.hide-aside .VPContent .aside {
+    display: none;
+  }
+
+  html.hide-aside .VPDoc.has-aside .content-container {
+    max-width: 100%;
+  }
+}
+
+/* ==================================================================
+ * 移动端 / iPad 适配
+ * ================================================================== */
+
+/* 宽表格：手机/平板上横向滑动而不是撑破布局 */
+@media (max-width: 1024px) {
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .vp-doc table th,
+  .vp-doc table td {
+    white-space: normal;
+    min-width: 90px;
+  }
+}
+
+/* 手机端正文间距与字号微调 */
+@media (max-width: 640px) {
+  .vp-doc {
+    font-size: 15px;
+  }
+
+  .VPDoc .content-container {
+    padding: 0 4px;
+  }
+
+  /* 代码块字号略缩，减少横向滚动 */
+  .vp-doc div[class*='language-'] pre {
+    font-size: 12.5px;
+  }
+}
+
+/* iPad 竖屏（768~959）：正文容器适当收紧留白 */
+@media (min-width: 768px) and (max-width: 959px) {
+  .VPDoc.has-sidebar .container {
+    padding: 24px 24px 0;
+  }
+}
