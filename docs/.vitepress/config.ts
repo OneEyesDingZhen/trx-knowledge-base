@@ -26,6 +26,7 @@ export default defineConfig({
       {
         text: '专题研读',
         items: [
+          { text: 'AR/AP 财务实战课', link: '/arap-course/index' },
           { text: 'ERPNext FI/AR 调研', link: '/erpnext-fi-ar-research/README' },
           { text: 'Vendure 深度内化', link: '/vendure/README' },
           { text: '高并发高可用认知手册', link: '/高并发高可用认知手册/README' },
@@ -108,6 +109,22 @@ export default defineConfig({
               ],
             },
             { text: '附录-面试速查QA（40题）', link: '/高并发高可用认知手册/附录-面试速查QA' },
+          ],
+        },
+      ],
+      '/arap-course/': [
+        {
+          text: 'AR/AP 财务实战课',
+          items: [
+            { text: '课程总览与数据导入', link: '/arap-course/index' },
+            { text: '01 会计最小知识包', link: '/arap-course/01-会计最小知识' },
+            { text: '02 主数据：系统的地基', link: '/arap-course/02-主数据' },
+            { text: '03 应收全流程：开票与收款', link: '/arap-course/03-应收全流程' },
+            { text: '04 应付全流程：收票与付款', link: '/arap-course/04-应付全流程' },
+            { text: '05 对账与账龄', link: '/arap-course/05-对账与账龄' },
+            { text: '06 红冲与更正', link: '/arap-course/06-红冲与更正' },
+            { text: '07 期末结账与三大报表', link: '/arap-course/07-期末结账' },
+            { text: '08 从 Frappe Books 到 ERPNext', link: '/arap-course/08-走向ERPNext' },
           ],
         },
       ],
